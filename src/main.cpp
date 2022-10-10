@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       ryan                                                      */
+/*    Author:       Avengineers V Team                                        */
 /*    Created:      Mon Oct 10 2022                                           */
 /*    Description:  V5 project                                                */
 /*                                                                            */
