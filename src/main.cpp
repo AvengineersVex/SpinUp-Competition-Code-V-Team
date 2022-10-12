@@ -10,7 +10,7 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // LeftDrive            motor         1               
 // RightDrive           motor         2
-// Controller1          controller
+// Controller           controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -32,7 +32,7 @@ void autonomous(void) {
 }
 
 void usercontrol(void) {
-  while (1) {
+  while (true) {
     mainDrive();
     wait(20, msec);
   }
