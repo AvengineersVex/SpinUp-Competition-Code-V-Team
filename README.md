@@ -22,7 +22,7 @@
 
 ## Members
 Captain: Ryan  
-Members: Bryce, Ryan, Hanzhen, Ira, Poorvi
+Members: Bryce, Ryan, Hanzhen, Ira, Poorvi, Aryamaan, Mohit, Josh
 
 ## Files
 None yet.
