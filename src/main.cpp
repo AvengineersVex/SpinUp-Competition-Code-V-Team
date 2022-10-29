@@ -10,11 +10,13 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // LeftDrive            motor         1               
 // RightDrive           motor         2
+// Storage              motor         3
 // Controller           controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
 #include "drive.h"
+#include "control.h"
 
 using namespace vex;
 
@@ -33,6 +35,7 @@ void autonomous(void) {
 
 void usercontrol(void) {
   while (true) {
+    setupStorage(Controller.ButtonR1);
     mainDrive();
     wait(20, msec);
   }

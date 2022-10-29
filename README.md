@@ -10,6 +10,7 @@
 ## Motors
 1. LeftDrive
 2. RightDrive
+3. Storage
 
 ## Guidelines
 1. All code must have comments before submitting a pull request.
