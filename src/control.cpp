@@ -7,10 +7,10 @@ extern motor LeftDrive;
 extern motor Storage;
 
 void storage() {
-    Storage.setVelocity(100, velocityUnits::pct);
-    Storage.rotateTo(90, rotationUnits::deg);
-    Storage.setVelocity(50, velocityUnits::pct);
-    Storage.rotateTo(-90, rotationUnits::deg);
+    Storage.setVelocity(75, velocityUnits::pct);
+    Storage.rotateTo(45, rotationUnits::deg);
+    Storage.setVelocity(25, velocityUnits::pct);
+    Storage.rotateTo(-45, rotationUnits::deg);
     Storage.setVelocity(0, velocityUnits::pct);
 }
 
