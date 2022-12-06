@@ -6,6 +6,7 @@ extern brain Brain;
 extern motor LeftDrive;
 extern motor RightDrive;
 extern motor Storage;
+extern motor Intake;
 
 extern controller Controller;
 

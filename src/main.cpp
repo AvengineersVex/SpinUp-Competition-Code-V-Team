@@ -11,6 +11,7 @@
 // LeftDrive            motor         1               
 // RightDrive           motor         2
 // Storage              motor         3
+// Intake               motor         4
 // Controller           controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
