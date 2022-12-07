@@ -18,10 +18,10 @@ int mainDrive() { // one joystick
     while (true) { // loop forever
         if ((abs(Controller.Axis3.value()) > 20 || abs(Controller.Axis4.value()) > 20) && Controller.ButtonDown.pressing()) { // reverse
             Intake.setVelocity(75, velocityUnits::pct);
-            Intake.spin(directionType::rev);
+            Intake.spin(directionType::fwd);
         } else if ((abs(Controller.Axis3.value()) > 20 || abs(Controller.Axis4.value()) > 20)) { // regular direction
             Intake.setVelocity(75, velocityUnits::pct);
-            Intake.spin(directionType::fwd);
+            Intake.spin(directionType::rev);
         } else { // not moving
             Intake.setVelocity(0, velocityUnits::pct);
         }

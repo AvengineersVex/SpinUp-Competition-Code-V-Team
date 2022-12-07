@@ -7,6 +7,8 @@ extern motor LeftDrive;
 extern motor RightDrive;
 extern motor Storage;
 extern motor Intake;
+extern motor Flywheel1;
+extern motor Flywheel2;
 
 extern controller Controller;
 

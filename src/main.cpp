@@ -37,6 +37,7 @@ void autonomous(void) {
 void usercontrol(void) {
   while (true) {
     setupStorage(Controller.ButtonR1);
+    setupFlywheel(Controller.ButtonL1);
     mainDrive();
     wait(20, msec);
   }
