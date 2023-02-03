@@ -7,6 +7,23 @@ extern motor LeftDrive;
 extern motor Storage;
 extern motor Flywheel1;
 extern motor Flywheel2;
+extern motor Roller;
+
+int roller() {
+    Roller.setVelocity(0, velocityUnits::pct);
+    Roller.spin(fwd);
+
+    while (true) {
+        if (abs(Controller.Axis3.value()) < 20) {
+            Roller.setVelocity(0, velocityUnits::pct);
+        }
+        else {
+            Roller.setVelocity(50, velocityUnits::pct);
+        }
+        wait(20, msec);
+    }
+    return 0;
+}
 
 void storage() {
     Storage.setVelocity(100, velocityUnits::pct);

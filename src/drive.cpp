@@ -6,24 +6,32 @@ extern controller Controller;
 extern motor RightDrive;
 extern motor LeftDrive;
 extern motor Intake;
+extern motor Storage;
 
 int mainDrive() { // one joystick
     RightDrive.setVelocity(0, velocityUnits::pct);
     LeftDrive.setVelocity(0, velocityUnits::pct);
     Intake.setVelocity(0, velocityUnits::pct);
+    Storage.setVelocity(0, velocityUnits::pct);
     RightDrive.spin(fwd);
     LeftDrive.spin(fwd);
     Intake.spin(directionType::rev);
+    Storage.spin(directionType::rev);
     
     while (true) { // loop forever
         if ((abs(Controller.Axis3.value()) > 20 || abs(Controller.Axis4.value()) > 20) && Controller.ButtonDown.pressing()) { // reverse
             Intake.setVelocity(75, velocityUnits::pct);
             Intake.spin(directionType::fwd);
+            Storage.setVelocity(75, velocityUnits::pct);
+            Storage.spin(directionType::fwd);
         } else if ((abs(Controller.Axis3.value()) > 20 || abs(Controller.Axis4.value()) > 20)) { // regular direction
             Intake.setVelocity(75, velocityUnits::pct);
             Intake.spin(directionType::rev);
+            Storage.setVelocity(75, velocityUnits::pct);
+            Storage.spin(directionType::rev);
         } else { // not moving
             Intake.setVelocity(0, velocityUnits::pct);
+            Storage.setVelocity(0, velocityUnits::pct);
         }
 
         if (abs(Controller.Axis3.value()) < 20) { // rotating on the spot

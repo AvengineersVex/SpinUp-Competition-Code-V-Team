@@ -35,10 +35,11 @@ void autonomous(void) {
 }
 
 void usercontrol(void) {
+  // setupStorage(Controller.ButtonR1);
+  setupFlywheel(Controller.ButtonL1);
   while (true) {
-    setupStorage(Controller.ButtonR1);
-    setupFlywheel(Controller.ButtonL1);
     mainDrive();
+    roller();
     wait(20, msec);
   }
 }

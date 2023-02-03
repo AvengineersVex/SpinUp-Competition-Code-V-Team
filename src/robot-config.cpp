@@ -12,6 +12,7 @@ motor Storage = motor(PORT3, ratio18_1, false);
 motor Intake = motor(PORT4, ratio18_1, false);
 motor Flywheel1 = motor(PORT5, ratio6_1, false);
 motor Flywheel2 = motor(PORT6, ratio6_1, false);
+motor Roller = motor(PORT7, ratio18_1, false);
 
 controller Controller = controller(primary);
 
