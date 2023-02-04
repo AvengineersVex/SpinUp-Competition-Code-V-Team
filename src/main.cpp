@@ -8,11 +8,14 @@
 /*----------------------------------------------------------------------------*/
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
-// LeftDrive            motor         1               
-// RightDrive           motor         2
-// Storage              motor         3
-// Intake               motor         4
-// Controller           controller
+// LeftDrive         motor           1
+// RightDrive        motor           2
+// Storage           motor           3
+// Intake            motor           4
+// Flywheel1         motor           5
+// Flywheel2         motor           6
+// Roller            motor           7
+// Controller        controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
