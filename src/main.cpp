@@ -38,6 +38,7 @@ void autonomous(void) {
 }
 
 void usercontrol(void) {
+  Controller.ButtonA.pressed(shoot);
   setupIntake(Controller.ButtonR1);
   setupRoller(Controller.ButtonR2);
   setupFlywheel(Controller.ButtonL1);
