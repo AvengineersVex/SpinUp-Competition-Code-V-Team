@@ -15,6 +15,7 @@
 // Flywheel1         motor           5
 // Flywheel2         motor           6
 // Roller            motor           7
+// Expansion         motor           8
 // Controller        controller
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -39,6 +40,7 @@ void autonomous(void) {
 
 void usercontrol(void) {
   Controller.ButtonA.pressed(shoot);
+  setupExpansion(Controller.ButtonL2);
   setupIntake(Controller.ButtonR1);
   setupRoller(Controller.ButtonR2);
   setupFlywheel(Controller.ButtonL1);

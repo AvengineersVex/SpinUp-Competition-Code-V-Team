@@ -10,6 +10,7 @@ extern motor Intake;
 extern motor Flywheel1;
 extern motor Flywheel2;
 extern motor Roller;
+extern motor Expansion;
 
 extern controller Controller;
 

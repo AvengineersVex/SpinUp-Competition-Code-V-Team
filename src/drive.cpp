@@ -2,11 +2,6 @@
 #include <cmath>
 #include <math.h>
 using namespace vex;
-extern controller Controller;
-extern motor RightDrive;
-extern motor LeftDrive;
-extern motor Intake;
-extern motor Storage;
 
 int mainDrive() { // one joystick
     RightDrive.setVelocity(0, velocityUnits::pct);

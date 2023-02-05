@@ -1,20 +1,31 @@
 #include "vex.h"
 using namespace vex;
 
-extern controller Controller;
-extern motor RightDrive;
-extern motor LeftDrive;
-extern motor Storage;
-extern motor Flywheel1;
-extern motor Flywheel2;
-extern motor Roller;
-
 bool intakeSpinning = false;
 bool flywheelSpinning = false;
 bool rollerSpinning = false;
+bool expansionSpinning = false;
+
+void expansion() {
+    if (expansionSpinning) {
+        expansionSpinning = false;
+        Expansion.setVelocity(0, velocityUnits::pct);
+        Expansion.stop();
+    } else {
+        expansionSpinning = true;
+        Expansion.setVelocity(100, velocityUnits::pct);
+        Expansion.spin(directionType::rev);
+    }
+}
+
+void setupExpansion(controller::button Button) {
+    Expansion.setVelocity(0, velocityUnits::pct);
+    Expansion.stop();
+    Button.pressed(expansion);
+}
 
 void shoot() {
-    Intake.setVelocity(75, velocityUnits::pct);
+    Intake.setVelocity(100, velocityUnits::pct);
     Intake.spin(directionType::rev);
     wait(500, msec);
     Intake.setVelocity(0, velocityUnits::pct);
@@ -75,7 +86,7 @@ void flywheel() {
         flywheelSpinning = true;
         Flywheel1.setVelocity(100, velocityUnits::pct);
         Flywheel2.setVelocity(100, velocityUnits::pct);
-        Storage.setVelocity(75, velocityUnits::pct);
+        Storage.setVelocity(100, velocityUnits::pct);
         Flywheel1.spin(directionType::fwd);
         Flywheel2.spin(directionType::fwd);
         Storage.spin(directionType::rev);

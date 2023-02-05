@@ -1,4 +1,6 @@
 void shoot();
+void setupExpansion(vex::controller::button);
+void expansion();
 void setupRoller(vex::controller::button);
 void roller();
 void setupIntake(vex::controller::button);
