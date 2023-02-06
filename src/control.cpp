@@ -25,11 +25,28 @@ void setupExpansion(controller::button Button) {
 }
 
 void shoot() {
-    Intake.setVelocity(100, velocityUnits::pct);
-    Intake.spin(directionType::rev);
-    wait(500, msec);
-    Intake.setVelocity(0, velocityUnits::pct);
-    Intake.stop();
+    if (flywheelSpinning) {
+        flywheelSpinning = false;
+        Flywheel1.setVelocity(0, velocityUnits::pct);
+        Flywheel2.setVelocity(0, velocityUnits::pct);
+        Storage.setVelocity(0, velocityUnits::pct);
+        Intake.setVelocity(0, velocityUnits::pct);
+        Flywheel1.stop();
+        Flywheel2.stop();
+        Storage.stop();
+        Intake.stop();
+    } else {
+        flywheelSpinning = true;
+        Flywheel1.setVelocity(100, velocityUnits::pct);
+        Flywheel2.setVelocity(100, velocityUnits::pct);
+        Flywheel1.spin(directionType::fwd);
+        Flywheel2.spin(directionType::fwd);
+        wait(1500, msec);
+        Storage.setVelocity(100, velocityUnits::pct);
+        Intake.setVelocity(100, velocityUnits::pct);
+        Storage.spin(directionType::fwd);
+        Intake.spin(directionType::rev);
+    }
 }
 
 void roller() {
