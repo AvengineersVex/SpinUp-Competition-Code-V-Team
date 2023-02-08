@@ -24,7 +24,7 @@ void setupExpansion(controller::button Button) {
     Button.pressed(expansion);
 }
 
-void shoot() {
+void highGoal() {
     if (flywheelSpinning) {
         flywheelSpinning = false;
         Flywheel1.setVelocity(0, velocityUnits::pct);
@@ -41,10 +41,35 @@ void shoot() {
         Flywheel2.setVelocity(100, velocityUnits::pct);
         Flywheel1.spin(directionType::fwd);
         Flywheel2.spin(directionType::fwd);
-        wait(1500, msec);
+        wait(2500, msec);
         Storage.setVelocity(100, velocityUnits::pct);
         Intake.setVelocity(100, velocityUnits::pct);
-        Storage.spin(directionType::fwd);
+        Storage.spin(directionType::rev);
+        Intake.spin(directionType::rev);
+    }
+}
+
+void lowGoal() {
+    if (flywheelSpinning) {
+        flywheelSpinning = false;
+        Flywheel1.setVelocity(0, velocityUnits::pct);
+        Flywheel2.setVelocity(0, velocityUnits::pct);
+        Storage.setVelocity(0, velocityUnits::pct);
+        Intake.setVelocity(0, velocityUnits::pct);
+        Flywheel1.stop();
+        Flywheel2.stop();
+        Storage.stop();
+        Intake.stop();
+    } else {
+        flywheelSpinning = true;
+        Flywheel1.setVelocity(25, velocityUnits::pct);
+        Flywheel2.setVelocity(25, velocityUnits::pct);
+        Flywheel1.spin(directionType::fwd);
+        Flywheel2.spin(directionType::fwd);
+        wait(1500, msec);
+        Storage.setVelocity(50, velocityUnits::pct);
+        Intake.setVelocity(100, velocityUnits::pct);
+        Storage.spin(directionType::rev);
         Intake.spin(directionType::rev);
     }
 }
@@ -56,7 +81,7 @@ void roller() {
         Roller.stop();
     } else {
         rollerSpinning = true;
-        Roller.setVelocity(50, velocityUnits::pct);
+        Roller.setVelocity(100, velocityUnits::pct);
         Roller.spin(fwd);
     }
 }
@@ -75,10 +100,10 @@ void intake() {
     } else {
         intakeSpinning = true;
         if (Controller.ButtonDown.pressing()) {
-            Intake.setVelocity(75, velocityUnits::pct);
+            Intake.setVelocity(100, velocityUnits::pct);
             Intake.spin(directionType::rev);
         } else {
-            Intake.setVelocity(75, velocityUnits::pct);
+            Intake.setVelocity(100, velocityUnits::pct);
             Intake.spin(directionType::rev);
         }
     }

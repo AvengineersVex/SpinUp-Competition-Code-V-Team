@@ -11,6 +11,11 @@
 1. LeftDrive
 2. RightDrive
 3. Storage
+4. Intake
+5. Flywheel 1
+6. Flywheel 2
+7. Roller
+8. Expansion
 
 ## Guidelines
 1. All code must have comments before submitting a pull request.
@@ -23,7 +28,7 @@
 
 ## Members
 Captain: Ryan  
-Members: Bryce, Ryan, Hanzhen, Ira, Poorvi, Aryamaan, Mohit, Josh
+Members: Hanzhen, Ira, Poorvi, Aryamaan, Mohit, Josh
 
 ## Files
 None yet.

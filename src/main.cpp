@@ -22,6 +22,7 @@
 #include "vex.h"
 #include "drive.h"
 #include "control.h"
+#include "auton.h"
 
 using namespace vex;
 
@@ -35,11 +36,12 @@ void pre_auton(void) {
 }
 
 void autonomous(void) {
-
+  // auton();
 }
 
 void usercontrol(void) {
-  Controller.ButtonA.pressed(shoot);
+  Controller.ButtonA.pressed(highGoal);
+  Controller.ButtonB.pressed(lowGoal);
   setupExpansion(Controller.ButtonL2);
   setupIntake(Controller.ButtonR1);
   setupRoller(Controller.ButtonR2);

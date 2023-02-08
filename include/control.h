@@ -1,4 +1,5 @@
-void shoot();
+void highGoal();
+void lowGoal();
 void setupExpansion(vex::controller::button);
 void expansion();
 void setupRoller(vex::controller::button);
