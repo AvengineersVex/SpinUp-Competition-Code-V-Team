@@ -78,11 +78,19 @@ void roller() {
     if (rollerSpinning) {
         rollerSpinning = false;
         Roller.setVelocity(0, velocityUnits::pct);
+        RightDrive.setVelocity(0, velocityUnits::pct);
+        LeftDrive.setVelocity(0, velocityUnits::pct);
         Roller.stop();
+        RightDrive.stop();
+        LeftDrive.stop();
     } else {
         rollerSpinning = true;
         Roller.setVelocity(100, velocityUnits::pct);
+        RightDrive.setVelocity(75, velocityUnits::pct);
+        LeftDrive.setVelocity(75, velocityUnits::pct);
         Roller.spin(fwd);
+        RightDrive.spin(fwd);
+        LeftDrive.spin(fwd);
     }
 }
 
