@@ -109,7 +109,7 @@ void intake() {
         intakeSpinning = true;
         if (Controller.ButtonDown.pressing()) {
             Intake.setVelocity(100, velocityUnits::pct);
-            Intake.spin(directionType::rev);
+            Intake.spin(directionType::fwd);
         } else {
             Intake.setVelocity(100, velocityUnits::pct);
             Intake.spin(directionType::rev);

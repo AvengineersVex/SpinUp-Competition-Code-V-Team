@@ -42,10 +42,10 @@ void autonomous(void) {
 void usercontrol(void) {
   Controller.ButtonA.pressed(highGoal);
   Controller.ButtonB.pressed(lowGoal);
-  setupExpansion(Controller.ButtonL2);
   setupIntake(Controller.ButtonR1);
   setupRoller(Controller.ButtonR2);
   setupFlywheel(Controller.ButtonL1);
+  setupExpansion(Controller.ButtonL2);
   while (true) {
     mainDrive();
     wait(20, msec);
