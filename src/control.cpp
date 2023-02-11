@@ -14,7 +14,7 @@ void expansion() {
     } else {
         expansionSpinning = true;
         Expansion.setVelocity(100, velocityUnits::pct);
-        Expansion.spin(directionType::rev);
+        Expansion.spin(directionType::fwd);
     }
 }
 
@@ -66,7 +66,7 @@ void lowGoal() {
         Flywheel2.setVelocity(25, velocityUnits::pct);
         Flywheel1.spin(directionType::fwd);
         Flywheel2.spin(directionType::fwd);
-        wait(1500, msec);
+        wait(500, msec);
         Storage.setVelocity(50, velocityUnits::pct);
         Intake.setVelocity(100, velocityUnits::pct);
         Storage.spin(directionType::rev);
@@ -88,7 +88,7 @@ void roller() {
         Roller.setVelocity(100, velocityUnits::pct);
         RightDrive.setVelocity(75, velocityUnits::pct);
         LeftDrive.setVelocity(75, velocityUnits::pct);
-        Roller.spin(fwd);
+        Roller.spin(directionType::rev);
         RightDrive.spin(fwd);
         LeftDrive.spin(fwd);
     }

@@ -10,17 +10,17 @@ void auton() {
     RightDrive.spin(directionType::fwd);
     LeftDrive.spin(directionType::fwd);
     Roller.setVelocity(100, velocityUnits::pct);
-    Roller.spin(fwd);
-    wait(100, msec);
+    Roller.spin(directionType::rev);
+    wait(3000, msec);
     Roller.setVelocity(0, velocityUnits::pct);
     Roller.stop();
     backwardInches(8);
     turnDegrees(135);
     forwardInches(76);
-    turnDegrees(90);
-    forwardInches(5);
+    turnDegrees(270);
+    backwardInches(5);
     // shoot 75 inches
     highGoal();
-    wait(3000, msec);
+    wait(5000, msec);
     highGoal();
 }

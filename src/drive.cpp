@@ -64,11 +64,15 @@ void stop() {
 }
 
 void forwardInches(double inches) {
+    LeftDrive.spin(directionType::fwd);
+    RightDrive.spin(directionType::fwd);
     LeftDrive.rotateFor(inchesToDegrees(inches), rotationUnits::deg, true);
     RightDrive.rotateFor(inchesToDegrees(inches), rotationUnits::deg, true);
 }
 
 void backwardInches(double inches) {
+    LeftDrive.spin(directionType::rev);
+    RightDrive.spin(directionType::rev);
     LeftDrive.rotateFor(inchesToDegrees(inches), rotationUnits::deg, true);
     RightDrive.rotateFor(inchesToDegrees(inches), rotationUnits::deg, true);
 }
