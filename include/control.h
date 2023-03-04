@@ -1,4 +1,5 @@
-void highGoal();
+void longHighGoal();
+void shortHighGoal();
 void lowGoal();
 void setupExpansion(vex::controller::button);
 void expansion();

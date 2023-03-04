@@ -12,9 +12,15 @@ void expansion() {
         Expansion.setVelocity(0, velocityUnits::pct);
         Expansion.stop();
     } else {
-        expansionSpinning = true;
-        Expansion.setVelocity(100, velocityUnits::pct);
-        Expansion.spin(directionType::fwd);
+        if (Controller.ButtonY.pressing()) {
+          expansionSpinning = true;
+          Expansion.setVelocity(100, velocityUnits::pct);
+          Expansion.spin(directionType::fwd);
+          wait(1000, msec);
+          expansionSpinning = false;
+          Expansion.setVelocity(0, velocityUnits::pct);
+          Expansion.stop();
+        }
     }
 }
 
@@ -24,7 +30,7 @@ void setupExpansion(controller::button Button) {
     Button.pressed(expansion);
 }
 
-void highGoal() {
+void shortHighGoal() {
     if (flywheelSpinning) {
         flywheelSpinning = false;
         Flywheel1.setVelocity(0, velocityUnits::pct);
@@ -37,8 +43,41 @@ void highGoal() {
         Intake.stop();
     } else {
         flywheelSpinning = true;
-        Flywheel1.setVelocity(100, velocityUnits::pct);
-        Flywheel2.setVelocity(100, velocityUnits::pct);
+        Storage.setVelocity(0, velocityUnits::pct);
+        Intake.setVelocity(0, velocityUnits::pct);
+        Storage.stop();
+        Intake.stop();
+        Flywheel1.setVelocity(55, velocityUnits::pct);
+        Flywheel2.setVelocity(55, velocityUnits::pct);
+        Flywheel1.spin(directionType::fwd);
+        Flywheel2.spin(directionType::fwd);
+        wait(2500, msec);
+        Storage.setVelocity(100, velocityUnits::pct);
+        Intake.setVelocity(100, velocityUnits::pct);
+        Storage.spin(directionType::rev);
+        Intake.spin(directionType::rev);
+    }
+}
+
+void longHighGoal() {
+    if (flywheelSpinning) {
+        flywheelSpinning = false;
+        Flywheel1.setVelocity(0, velocityUnits::pct);
+        Flywheel2.setVelocity(0, velocityUnits::pct);
+        Storage.setVelocity(0, velocityUnits::pct);
+        Intake.setVelocity(0, velocityUnits::pct);
+        Flywheel1.stop();
+        Flywheel2.stop();
+        Storage.stop();
+        Intake.stop();
+    } else {
+        flywheelSpinning = true;
+        Storage.setVelocity(0, velocityUnits::pct);
+        Intake.setVelocity(0, velocityUnits::pct);
+        Storage.stop();
+        Intake.stop();
+        Flywheel1.setVelocity(65, velocityUnits::pct);
+        Flywheel2.setVelocity(65, velocityUnits::pct);
         Flywheel1.spin(directionType::fwd);
         Flywheel2.spin(directionType::fwd);
         wait(2500, msec);
@@ -62,8 +101,8 @@ void lowGoal() {
         Intake.stop();
     } else {
         flywheelSpinning = true;
-        Flywheel1.setVelocity(25, velocityUnits::pct);
-        Flywheel2.setVelocity(25, velocityUnits::pct);
+        Flywheel1.setVelocity(10, velocityUnits::pct);
+        Flywheel2.setVelocity(10, velocityUnits::pct);
         Flywheel1.spin(directionType::fwd);
         Flywheel2.spin(directionType::fwd);
         wait(500, msec);
@@ -75,28 +114,23 @@ void lowGoal() {
 }
 
 void roller() {
-    if (rollerSpinning) {
-        rollerSpinning = false;
-        Roller.setVelocity(0, velocityUnits::pct);
-        RightDrive.setVelocity(0, velocityUnits::pct);
-        LeftDrive.setVelocity(0, velocityUnits::pct);
-        Roller.stop();
-        RightDrive.stop();
-        LeftDrive.stop();
+    if (intakeSpinning) {
+        intakeSpinning = false;
+        Intake.setVelocity(0, velocityUnits::pct);
+        Intake.stop();
     } else {
-        rollerSpinning = true;
-        Roller.setVelocity(100, velocityUnits::pct);
-        RightDrive.setVelocity(75, velocityUnits::pct);
-        LeftDrive.setVelocity(75, velocityUnits::pct);
-        Roller.spin(directionType::rev);
-        RightDrive.spin(fwd);
-        LeftDrive.spin(fwd);
+        intakeSpinning = true;
+        if (Controller.ButtonDown.pressing()) {
+            Intake.setVelocity(50, velocityUnits::pct);
+            Intake.spin(directionType::fwd);
+        } else {
+            Intake.setVelocity(50, velocityUnits::pct);
+            Intake.spin(directionType::rev);
+        }
     }
 }
 
 void setupRoller(controller::button Button) {
-    Roller.setVelocity(0, velocityUnits::pct);
-    Roller.stop();
     Button.pressed(roller);
 }
 
@@ -137,8 +171,8 @@ void flywheel() {
         Flywheel1.setVelocity(100, velocityUnits::pct);
         Flywheel2.setVelocity(100, velocityUnits::pct);
         Storage.setVelocity(100, velocityUnits::pct);
-        Flywheel1.spin(directionType::fwd);
-        Flywheel2.spin(directionType::fwd);
+        Flywheel1.spin(directionType::fwd, 12.0, voltageUnits::volt);
+        Flywheel2.spin(directionType::fwd, 12.0, voltageUnits::volt);
         Storage.spin(directionType::rev);
     }
 }

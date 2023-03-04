@@ -36,16 +36,57 @@ void pre_auton(void) {
 }
 
 void autonomous(void) {
-  auton();
+  // RightDrive.setVelocity(100, velocityUnits::pct);
+  // LeftDrive.setVelocity(100, velocityUnits::pct);
+  // RightDrive.spin(directionType::fwd);
+  // LeftDrive.spin(directionType::fwd);
+  // Intake.setVelocity(50, velocityUnits::pct);
+  // Intake.spin(directionType::fwd);
+  // wait(250, msec);
+  // Intake.setVelocity(0, velocityUnits::pct);
+  // Intake.stop();
+  // RightDrive.stop();
+  // LeftDrive.stop();
+  RightDrive.setVelocity(100, velocityUnits::pct);
+  LeftDrive.setVelocity(100, velocityUnits::pct);
+  RightDrive.spin(directionType::fwd);
+  LeftDrive.spin(directionType::fwd);
+  wait(1000, msec);
+  RightDrive.stop();
+  LeftDrive.stop();
+  Intake.spin(directionType::fwd);
+  wait(2000, msec);
+  Intake.stop();
+  RightDrive.spin(directionType::rev);
+  LeftDrive.spin(directionType::rev);
+  wait(1975, msec);
+  RightDrive.stop();
+  LeftDrive.stop();
+  wait(500, msec);
+  RightDrive.spin(directionType::fwd);
+  LeftDrive.spin(directionType::rev);
+  wait(800, msec);
+  LeftDrive.spin(directionType::fwd);
+  wait(1000, msec);
+  Intake.setVelocity(50, velocityUnits::pct);
+  Intake.spin(directionType::fwd);
+  wait(500, msec);
+  Intake.setVelocity(0, velocityUnits::pct);
+  Intake.stop();
+  // RightDrive.setVelocity(0, velocityUnits::pct);
+  // LeftDrive.setVelocity(0, velocityUnits::pct);
+  // RightDrive.stop();
+  // LeftDrive.stop();
 }
 
 void usercontrol(void) {
-  Controller.ButtonA.pressed(highGoal);
-  Controller.ButtonB.pressed(lowGoal);
   setupIntake(Controller.ButtonR1);
   setupRoller(Controller.ButtonR2);
   setupFlywheel(Controller.ButtonL1);
   setupExpansion(Controller.ButtonL2);
+  Controller.ButtonX.pressed(longHighGoal);
+  Controller.ButtonA.pressed(shortHighGoal);
+  Controller.ButtonB.pressed(lowGoal);
   while (true) {
     mainDrive();
     wait(20, msec);
